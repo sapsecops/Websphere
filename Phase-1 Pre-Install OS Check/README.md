@@ -12,8 +12,27 @@ Why ?
 
 ## Check available disk space 
 ```
-cat /etc/os-release
+df -hP /apps /opt /tmp /home 
 ```
 Why ? 
 
-   Websphere support specific OS only  ==>  If the OS is unsupported, IBM will not provide support.
+   Websphere required specific Space, if not installation Failed
+	In Real-Time these "/apps/IBM" these path is mounted as sperate Disk using LVM, so that we can increase volume for these PATH 
+
+/apps atleast need 15 GB for free Websphere Installation
+
+## Check available RAM
+```
+free -m
+```
+Why ? 
+
+   Websphere required specific Space, if not installation Failed
+
+## Check JAVA
+```
+java -version
+```
+Why ? 
+	Installation Manager ships with its own JDK, but organizations verify existing Java installations to avoid conflicts.
+	Because  Server already has: Oracle Java (or) OpenJDK, So Middleware team documents them before installation.
